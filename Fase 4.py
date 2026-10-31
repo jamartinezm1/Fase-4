@@ -1,4 +1,4 @@
 print("Bienvenidos al curso de Programación")
 print("Universidad Nacional Abierta y a Distancia")
 print("Estudiante: Alexander M")
-print("Estudiante: ") # Aquí tus compañeros irán agregando sus nombres
+print("Estudiante: ") 
