@@ -7,36 +7,37 @@ from abc import ABC, abstractmethod
 class EntidadBase(ABC):
   #Clase abstracta base para garantizar la identificacion de entidades
   
-  def __init__(self, id_entidad):
+    def __init__(self, id_entidad):
         self._id_entidad = id_entidad  # Atributo protegido
     @property
-  def id_entidad(self):
-    return self._id_entidad
+
+    def id_entidad(self):
+        return self._id_entidad
 
 # 2 CLASE CLIENTE "ENCAPSULAMIENTO Y VALIDACIONES"
 class Cliente(EntidadBase):
   #Clase que representa a un cliente
 
-def __init__(self, cedula, nombre, correo, telefono):
+    def __init__(self, cedula, nombre, correo, telefono):
         super().__init__(cedula)
         self.nombre = nombre
         self.correo = correo
         self.telefono = telefono
-@property
+    @property
     def nombre(self):
         return self._nombre
 
-@nombre.setter
+    @nombre.setter
     def nombre(self, valor):
         if not valor or not isinstance(valor, str):
             raise ValueError("El nombre del cliente no puede estar vacío.")
         self._nombre = valor.strip()
 
-@property
+    @property
     def correo(self):
         return self._correo
 
-@correo.setter
+    @correo.setter
     def correo(self, valor):
         if "@" not in valor or "." not in valor:
             raise ValueError("Formato de correo electrónico inválido.")
@@ -50,24 +51,24 @@ def obtener_informacion(self):
 
 class Servicio(ABC):
   # Clase abstracta base para los servicios ofrecidos.
-  def __init__(self, id_servicio, nombre_servicio, precio_base):
+     def __init__(self, id_servicio, nombre_servicio, precio_base):
         self.id_servicio = id_servicio
         self.nombre_servicio = nombre_servicio
         self.precio_base = precio_base
     
-  @abstractmethod
-  def calcular_costo(self, duracion_horas, descuento=0.0):
-    pass
+     @abstractmethod
+     def calcular_costo(self, duracion_horas, descuento=0.0):
+      pass
     # Método abstracto para calcular el costo según la duración y descuentos.
-  @abstractmethod
-    def obtener_descripcion(self):
+     @abstractmethod
+     def obtener_descripcion(self):
       pass
     # Método abstracto para la descripción polimórfica del servicio.
 
 class ReservaSala(Servicio):
   # Servicio especializado de reserva de salas de reuniones o desarrollo.
   
-  def __init__(self, id_servicio, nombre_servicio, precio_base, capacidad_personas):
+    def __init__(self, id_servicio, nombre_servicio, precio_base, capacidad_personas):
         super().__init__(id_servicio, nombre_servicio, precio_base)
         self.capacidad_personas = capacidad_personas
 
