@@ -27,7 +27,27 @@ El objetivo principal es implementar de forma rigurosa los principios de POO (ab
 -
 -
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Orientación sobre la Arquitectura Modular para el Equipo
+**IMPORTANTE SOBRE LA INTEGRACIÓN DEL CÓDIGO:**
 
+1. **No fusionaremos el código en un solo archivo.** Mantendremos la estructura modular del proyecto. Cada archivo `.py` cumple una función específica dentro del sistema.
+
+2. **Trabajo en archivos independientes:**
+ - `modelos.py`: Ya contiene las clases base, entidades, encapsulamiento y polimorfismo (`Cliente`, `Servicio`, etc.).
+ - `excepciones_y_logs.py`: Aquí se deben definir las excepciones personalizadas y la función para registrar eventos en `logs.txt`.
+ - `reserva.py`: Aquí se debe implementar la clase `Reserva` integrando los clientes y servicios.
+3. **Conexión en el archivo principal (`Fase 4.py`):**
+   Este archivo funcionará como el punto de entrada (Main). Desde allí importaremos las clases de los demás módulos (por ejemplo: `from modelos import Cliente, ReservaSala...`) para ejecutar las 10 simulaciones requeridas.
+
+## Tablón de Inquietudes y Dudas del Equipo
+
+*Si tienes alguna pregunta sobre cómo usar las clases de `modelos.py`, cómo estructurar tu módulo o algún inconveniente con Git/GitHub, déjala en esta sección editando este archivo o en los comentarios de los commits.*
+
+###  Preguntas y Notas Actuales:
+
+- **[Alexander]**: Las clases base de `modelos.py` (`Cliente`, `Servicio`, `ReservaSala`, `AlquilerEquipo`, `AsesoriaEspecializada`) ya están disponibles para ser importadas en los demás archivos.
+- **[Espacio para tu duda]**: *(Por favor escribir aquí su duda, nombre y fecha si necesitas ayuda con alguna parte del código)*.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Información Académica
 - Curso: Programación (Código: 213023)
 - Grupo: 213023_280
