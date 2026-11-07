@@ -30,7 +30,7 @@ class Cliente(EntidadBase):
     @nombre.setter
     def nombre(self, valor):
         if not valor or not isinstance(valor, str):
-            raise ValueError("El nombre del cliente no puede estar vacío.")
+            raise ParametroInvalidoError("El nombre del cliente no puede estar vacío.")
         self._nombre = valor.strip()
 
     @property
@@ -40,10 +40,10 @@ class Cliente(EntidadBase):
     @correo.setter
     def correo(self, valor):
         if "@" not in valor or "." not in valor:
-            raise ValueError("Formato de correo electrónico inválido.")
+            raise ParametroInvalidoError("Formato de correo electrónico inválido.")
         self._correo = valor.strip()
 
-def obtener_informacion(self):
+    def obtener_informacion(self):
         #Retorna un resumen formateado de los datos del cliente
         return f"Cliente: {self.nombre} | CC: {self.id_entidad} | Email: {self.correo}"
 
