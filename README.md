@@ -12,10 +12,13 @@ El objetivo principal es implementar de forma rigurosa los principios de POO (ab
 
 # Estructura del Código 
 #NOTA PARA EL EQUIPO: Cada uno debe crear o trabajar sobre su archivo .py correspondiente (módulo) según el rol asignado, para mantener el proyecto organizado.
-- `modelos.py`: Contiene las clases base, herencia, encapsulamiento y polimorfismo del sistema (`Cliente`, `Servicio`, `ReservaSala`, `AlquilerEquipo`, `AsesoriaEspecializada`).
-- `excepciones_y_logs.py`: Módulo para el manejo de excepciones personalizadas y el registro de eventos en archivo plano (`logs.txt`).
-- `reserva.py`: Módulo para la gestión y procesamiento de reservas de clientes.
-- `Fase 4.py`: Script principal de entrada donde se ejecutan las simulaciones del sistema.
+- `modelos.py`: Contiene las clases base, herencia, encapsulamiento y polimorfismo del sistema (`EntidadBase`, `Cliente`, `Servicio`, `ReservaSala`, `AlquilerEquipo`, `AsesoriaEspecializada`). Responsable: Jhon Alexander Martínez Molina.
+- `excepciones.py`: Define las excepciones personalizadas del sistema (`ReservaError` y sus derivadas: `ServicioNoDisponibleError`, `ParametroInvalidoError`, `ClienteInvalidoError`, `OperacionNoPermitidaError`).
+- `logs.py`: Función `registrar_log()` que guarda errores y eventos con fecha y hora en el archivo plano `logs.txt`.
+- `reserva.py`: Clase `Reserva` con confirmación, cancelación y procesamiento de reservas, con manejo de excepciones.
+- `gestor.py`: Clase `SistemaGestion` que administra las listas internas de clientes, servicios y reservas (sin base de datos). *(Pendiente de crear)*
+- `Fase 4.py`: Script principal de entrada donde se ejecutan las 10 simulaciones del sistema. Responsable: Jhon Alexander Martínez Molina.
+- `logs.txt`: Archivo generado automáticamente al ejecutar el programa, con el registro de errores y eventos.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -33,9 +36,10 @@ El objetivo principal es implementar de forma rigurosa los principios de POO (ab
 1. **No fusionaremos el código en un solo archivo.** Mantendremos la estructura modular del proyecto. Cada archivo `.py` cumple una función específica dentro del sistema.
 
 2. **Trabajo en archivos independientes:**
- - `modelos.py`: Ya contiene las clases base, entidades, encapsulamiento y polimorfismo (`Cliente`, `Servicio`, etc.).
- - `excepciones_y_logs.py`: Aquí se deben definir las excepciones personalizadas y la función para registrar eventos en `logs.txt`.
- - `reserva.py`: Aquí se debe implementar la clase `Reserva` integrando los clientes y servicios.
+- `modelos.py`: Ya contiene las clases base, entidades, encapsulamiento y polimorfismo (`Cliente`, `Servicio`, etc.).
+- `excepciones.py` y `logs.py`: Aquí están las excepciones personalizadas y la función para registrar eventos en `logs.txt`.
+- `reserva.py`: Aquí se implementa la clase `Reserva` integrando los clientes y servicios.
+- `gestor.py`: Aquí se implementa la clase `SistemaGestion` con las listas internas de clientes, servicios y reservas.
 3. **Conexión en el archivo principal (`Fase 4.py`):**
    Este archivo funcionará como el punto de entrada (Main). Desde allí importaremos las clases de los demás módulos (por ejemplo: `from modelos import Cliente, ReservaSala...`) para ejecutar las 10 simulaciones requeridas.
 
