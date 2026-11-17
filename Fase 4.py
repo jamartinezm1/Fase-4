@@ -15,6 +15,7 @@ from excepciones import (
     ParametroInvalidoError,
     ClienteInvalidoError,
 )
+from gestor import GestorSistema
 from logs import registrar_log
 from modelos import Cliente, ReservaSala, AlquilerEquipo, AsesoriaEspecializada
 from reserva import Reserva
@@ -146,7 +147,34 @@ def simulacion_10():
     reserva.confirmar_reserva()  # No debería permitirse
     print(f"    Estado final: {reserva.estado} (debe seguir 'Cancelada')")
  
- 
+ # SIMULACIÓN 11: GESTIÓN CENTRALIZADA DE COLECCIONES (GESTOR DEL SISTEMA)
+
+def simulacion_11():
+    """Orquestación completa mediante GestorSistema (listas internas, duplicados y reporte)"""
+    gestor = GestorSistema()
+
+    # 1. Registro de clientes y control de cédula duplicada
+    cliente_1 = crear_cliente_demo()
+    cliente_2 = Cliente("9876543", "Marcos Torres", "marcos@mail.com", "3154445566")
+    gestor.registrar_cliente(cliente_1)
+    gestor.registrar_cliente(cliente_2)
+
+    try:
+        gestor.registrar_cliente(cliente_1)  # Intento de duplicado
+    except ReservaError as error:
+        reportar_error("Cliente duplicado en gestor", error)
+
+    # 2. Carga del catálogo de servicios
+    gestor.agregar_servicio(ReservaSala("S-01", "Sala Innovación", 50000, 10))
+    gestor.agregar_servicio(AlquilerEquipo("E-01", "Portátil Gamer", 10000, 200000))
+    gestor.agregar_servicio(AsesoriaEspecializada("A-01", "Arquitectura Cloud", 100000, "Infraestructura"))
+
+    # 3. Creación y confirmación de reservas desde el gestor
+    gestor.crear_reserva("1234567", "S-01", 4)
+    gestor.crear_reserva("9876543", "A-01", 2)
+
+    # 4. Impresión del reporte consolidado del sistema
+    print(gestor.generar_reporte_general())
 
 # PROGRAMA PRINCIPAL
 
@@ -157,7 +185,7 @@ def main():
  
     simulaciones = [
         simulacion_1, simulacion_2, simulacion_3, simulacion_4, simulacion_5,
-        simulacion_6, simulacion_7, simulacion_8, simulacion_9, simulacion_10,
+        simulacion_6, simulacion_7, simulacion_8, simulacion_9, simulacion_10,simulacion_11,
     ]
  
     for numero, simulacion in enumerate(simulaciones, start=1):
@@ -174,7 +202,7 @@ def main():
             print(f"[-] Error inesperado: {error}")
         print()
  
-    print("Las 10 simulaciones finalizaron. El programa continuó funcionando ante todos los errores.")
+    print("Las 11 simulaciones finalizaron. El programa continuó funcionando ante todos los errores.")
     print("Revisa el archivo 'logs.txt' para ver el registro de errores.")
  
  
