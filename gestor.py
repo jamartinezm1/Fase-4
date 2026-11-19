@@ -7,7 +7,6 @@ from excepciones import (
     ServicioNoDisponibleError,
     OperacionNoPermitidaError,
 )
-from logs import registrar_log
 from modelos import Cliente, Servicio
 from reserva import Reserva
 
