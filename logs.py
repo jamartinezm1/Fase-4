@@ -8,4 +8,4 @@ def registrar_log(mensaje, nivel="error"):
     nivel_formateado = nivel.upper()
     # Para crear o abrir el archivo 'logs.txt' (si no existe, Python lo crea solo)
     with open("logs.txt", "a", encoding="utf-8") as archivo_log:
-        archivo_log.write(f"[{tiempo_actual}] {nivel}: {mensaje}\n")
+        archivo_log.write(f"[{tiempo_actual}] {nivel_formateado}: {mensaje}\n")
