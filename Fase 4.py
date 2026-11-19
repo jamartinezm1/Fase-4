@@ -3,7 +3,7 @@ Programa principal - Sistema Integral de Gestión de Clientes, Servicios y Reser
 Empresa: Software FJ
  
 Este archivo es el punto de entrada: importa las clases de los demás módulos
-(modelos, excepciones, logs y reserva) y ejecuta 10 simulaciones completas.
+(modelos, excepciones, logs y reserva) y ejecuta 11 simulaciones completas.
 Cada simulación puede fallar sin detener el programa: los errores se capturan,
 se registran en 'logs.txt' y la ejecución continúa con la siguiente.
  
