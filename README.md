@@ -33,10 +33,19 @@ El proyecto está organizado de manera modular en 6 archivos `.py` independiente
 
 ## Ejecución del Proyecto
 
-1. Clonar o descargar el repositorio:
+### Requisitos Previos
+- Tener instalado **Python 3.10 o superior**.
+
+### Paso a paso para ejecutar
+
+1. **Obtener el código fuente:**
+   - **— Descarga directa:** Haz clic en el botón verde **`<> Code`** en la parte superior del repositorio, selecciona **`Download ZIP`**, descomprime la carpeta y ábrela en tu editor (como Visual Studio Code).
+
+2. **Ejecutar el archivo principal:**
+   Abre una terminal dentro de la carpeta del proyecto (asegurándote de que todos los archivos `.py` estén en el mismo directorio) y ejecuta:
    ```bash
-   git clone [https://github.com/jamartinezm1/Fase-4.git](https://github.com/jamartinezm1/Fase-4.git)
-   cd Fase-4
+   python "Fase 4.py"
+
    
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Información Académica
